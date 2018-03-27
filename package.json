@@ -24,7 +24,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jgrancher/react-native-sketch.git"
+    "url": "https://github.com/i3i2uno/react-native-sketch.git",
+    "origurl": "https://github.com/jgrancher/react-native-sketch.git"
   },
   "keywords": [
     "react",
