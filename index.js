@@ -21,8 +21,8 @@ export default class Sketch extends React.Component {
   static defaultProps = {
     fillColor: null,
     imageType: 'png',
-    onChange: () => {},
-    onClear: () => {},
+    onChange: () => { },
+    onClear: () => { },
     strokeColor: '#000000',
     strokeThickness: 1,
     style: null,
@@ -54,7 +54,9 @@ export default class Sketch extends React.Component {
     this.props.onClear();
   };
 
-  clear = () => SketchManager.clearDrawing();
+  clear = () => {
+    SketchManager.clearDrawing();
+  }
 
   save = () => {
     if (!this.state.imageData) return Promise.reject('No image provided!');
@@ -79,4 +81,16 @@ export default class Sketch extends React.Component {
   }
 }
 
-const RNSketch = requireNativeComponent('RNSketch', Sketch);
+const RNSketch = requireNativeComponent('RNSketch', Sketch, {
+  nativeOnly: {
+    onChange: true,
+    onLayout: true,
+    testID: true,
+    nativeID: true,
+    importantForAccessibility: true,
+    accessibilityLiveRegion: true,
+    accessibilityComponentType: true,
+    accessibilityLabel: true,
+    renderToHardwareTextureAndroid: true,
+  },
+});
